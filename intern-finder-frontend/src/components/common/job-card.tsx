@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function ApplyCard({ job }: { job: JobListing }) {
   return (
-    <div className="flex flex-col rounded-lg p-4 sm:p-5 md:p-6 shadow-md border border-gray-100 hover:border-gray-200 transition-colors">
+    <div className="flex flex-col rounded-lg p-4 sm:p-5 md:p-6 shadow-md border border-gray-100 hover:border-gray-200 transition-colors bg-white">
       <div className="flex justify-between pb-2 sm:pb-3">
         <span className="text-xs sm:text-sm text-primary font-medium bg-secondary p-1 sm:p-2 rounded-[8px] w-fit h-fit">
           {job.createdAt && changeDateToTimeAgo(job.createdAt)}
@@ -24,7 +24,7 @@ export default function ApplyCard({ job }: { job: JobListing }) {
             alt="Company Logo"
             width={40}
             height={40}
-            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg object-contain"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg object-contain border border-gray-200"
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -60,7 +60,7 @@ export default function ApplyCard({ job }: { job: JobListing }) {
         </div>
         <Link href={`/jobs/${job.id}`} className="w-full sm:w-auto">
           <Button className="w-full sm:w-auto bg-primary hover:bg-teal-600 text-white cursor-pointer text-sm sm:text-base px-4 py-2 h-auto">
-            Job Details
+            View Details
           </Button>
         </Link>
       </div>

@@ -116,8 +116,8 @@ export default function Jobs() {
           )}
 
           {/* Pagination */}
-          <section className="flex justify-center sm:justify-end my-8 sm:my-10">
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 lg:gap-145">
+          <section className="flex justify-center md:justify-end my-8 sm:my-10">
+            <div className="flex justify-between items-center gap-4 sm:gap-6 md:gap-10 lg:gap-145">
               <div className="flex gap-3 sm:gap-4 md:gap-5 items-center">
                 <Button className="h-8 sm:h-9 md:h-10 font-extrabold text-sm sm:text-base px-3 sm:px-4">
                   1

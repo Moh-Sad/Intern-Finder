@@ -120,7 +120,7 @@ export default function Filter() {
   };
 
   return (
-    <div className="w-full bg-secondary p-4 sm:p-5 md:p-6 rounded-md h-fit max-h-[80vh] overflow-y-auto">
+    <div className="w-full bg-secondary p-4 sm:p-5 md:p-6 rounded-md h-fit max-h-[80vh] md:max-h-none overflow-y-auto">
       {/* Search by Job Title */}
       <div className="mb-4 sm:mb-5 md:mb-6">
         <h3 className="text-dark font-medium mb-2 sm:mb-3 text-sm sm:text-base">

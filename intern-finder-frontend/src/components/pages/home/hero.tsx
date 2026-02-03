@@ -150,7 +150,7 @@ export default function HeroSection() {
       {/* Company Logos Footer */}
       <footer className="flex items-center bg-black h-16 sm:h-20 md:h-25">
         <div className="flex px-4 sm:px-8 md:px-25 justify-between w-full text-white overflow-x-auto">
-          <div className="flex space-x-6 sm:space-x-8 md:space-x-12 min-w-max px-4">
+          <div className="flex lg:justify-between space-x-6 md:space-x-8 min-w-max px-4 lg:px-12 w-full">
             <Image
               src={Spotify}
               alt="Spotify"
