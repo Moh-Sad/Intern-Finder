@@ -30,7 +30,7 @@ export default function ApplyCard({ job }: { job: JobListing }) {
               alt="Company Logo"
               width={60}
               height={60}
-              className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg object-contain border border-gray-200"
+              className="w-12 h-12 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg object-contain border border-gray-200"
               placeholder="empty"
             />
           </div>
