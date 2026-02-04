@@ -125,56 +125,63 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-6">
-          {user && (
-            <>
-              <div className="flex items-center gap-4 lg:gap-6">
-                <NotificationPopup />
-                <MessagesPopup />
-                <ThemeToggle />
-                {user?.role == "COMPANY" && (
-                  <Button
-                    className="flex gap-2 text-white rounded-sm text-sm lg:text-base px-3 py-2 lg:px-4 lg:py-2"
-                    onClick={() => router.push("/client/dashboard/post")}
+        {/* Actions Section */}
+        <div className="flex items-center gap-2 sm:gap-4">
+             {/* User Actions - Visible on all screens */}
+             {user && (
+               <div className="flex items-center gap-4 mr-2 sm:mr-0">
+                 <NotificationPopup />
+                 <MessagesPopup />
+               </div>
+             )}
+
+            {/* Desktop Only Actions */}
+            <div className="hidden md:flex items-center gap-4 lg:gap-6">
+              {user && (
+                <>
+                  <ThemeToggle />
+                  {user?.role == "COMPANY" && (
+                    <Button
+                      className="flex gap-2 text-white rounded-sm text-sm lg:text-base px-3 py-2 lg:px-4 lg:py-2"
+                      onClick={() => router.push("/client/dashboard/post")}
+                    >
+                      <Plus className="w-4 h-4" />
+                      Post a Job
+                    </Button>
+                  )}
+                </>
+              )}
+
+              {!user && (
+                <div className="flex items-center gap-3 lg:gap-4">
+                  <Link
+                    href={"/login"}
+                    className="text-[var(--text-light)] hover:text-[var(--text-white)] cursor-pointer text-sm lg:text-base"
                   >
-                    <Plus className="w-4 h-4" />
-                    Post a Job
+                    Login
+                  </Link>
+                  <Button
+                    onClick={handleSignupClick}
+                    className="bg-primary hover:bg-teal-600 text-white cursor-pointer text-sm lg:text-base px-3 py-2 lg:px-4 lg:py-2"
+                  >
+                    Register
                   </Button>
-                )}
-              </div>
-            </>
-          )}
-
-          {!user && (
-            <div className="flex items-center gap-3 lg:gap-4">
-              <Link
-                href={"/login"}
-                className="text-[var(--text-light)] hover:text-[var(--text-white)] cursor-pointer text-sm lg:text-base"
-              >
-                Login
-              </Link>
-              <Button
-                onClick={handleSignupClick}
-                className="bg-primary hover:bg-teal-600 text-white cursor-pointer text-sm lg:text-base px-3 py-2 lg:px-4 lg:py-2"
-              >
-                Register
-              </Button>
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden flex items-center justify-center w-10 h-10 text-white hover:bg-white/10 rounded-lg transition-colors"
-          onClick={toggleMobileMenu}
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
-        </button>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden flex items-center justify-center w-10 h-10 text-white hover:bg-white/10 rounded-lg transition-colors"
+              onClick={toggleMobileMenu}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -268,16 +275,6 @@ export default function Navbar() {
               <div className="space-y-4">
                 {user && (
                   <>
-                    <div className="flex items-center justify-between py-3 px-4 bg-white/5 rounded-lg">
-                      <span className="text-sm text-gray-300">
-                        Notifications
-                      </span>
-                      <NotificationPopup />
-                    </div>
-                    <div className="flex items-center justify-between py-3 px-4 bg-white/5 rounded-lg">
-                      <span className="text-sm text-gray-300">Messages</span>
-                      <MessagesPopup />
-                    </div>
                     <div className="flex items-center justify-between py-3 px-4 bg-white/5 rounded-lg">
                       <span className="text-sm text-gray-300">Theme</span>
                       <ThemeToggle />
