@@ -44,7 +44,7 @@ export function DashboardMobileNav() {
         >
           {/* Drawer */}
           <div 
-            className="fixed inset-y-0 left-0 z-50 w-72 bg-secondary shadow-xl overflow-y-auto transition-transform duration-300 ease-in-out"
+            className="fixed inset-y-0 left-0 z-50 w-72 bg-white shadow-xl transition-transform duration-300 ease-in-out"
             onClick={(e) => e.stopPropagation()}
           >
              <div className="flex justify-between items-center p-4 border-b border-white/10">
