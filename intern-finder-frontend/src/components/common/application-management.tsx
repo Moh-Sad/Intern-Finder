@@ -196,14 +196,14 @@ export function ApplicantManagement({ activeTab }: ApplicantManagementProps) {
     const stageData = getApplicantsByStage();
 
     return (
-      <div className="p-6">
-        <div className="grid grid-cols-4 gap-6">
+      <div className="p-4 md:p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {Object.entries(stageData).map(([stage, applicants]) => (
             <div
               key={stage}
               className={`rounded-lg border-2 ${
                 stageColors[stage as keyof typeof stageColors]
-              } h-150 overflow-y-scroll`}
+              } h-auto lg:h-[70vh] min-h-[400px] overflow-y-auto`}
             >
               {/* Stage Header */}
               <div
@@ -313,20 +313,20 @@ export function ApplicantManagement({ activeTab }: ApplicantManagementProps) {
       {activeTab === "applicants" && (
         <>
           {/* Header */}
-          <div className="flex items-center justify-between py-6">
-            <h2 className="text-dark text-2xl font-semibold font-['Clash_Display']">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between py-6 gap-4">
+            <h2 className="text-dark text-xl md:text-2xl font-semibold font-['Clash_Display']">
               Total Applicants: {filteredApplicants.length}
             </h2>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full lg:w-auto">
               {/* Search */}
-              <div className="relative">
+              <div className="relative flex-1 sm:flex-initial">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-light w-4 h-4" />
                 <Input
                   placeholder="Search Applicants"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 w-64 h-12"
+                  className="pl-10 w-full sm:w-64 h-12"
                 />
               </div>
 
@@ -459,11 +459,11 @@ export function ApplicantManagement({ activeTab }: ApplicantManagementProps) {
                           <span className="text-dark">{applicant.jobRole}</span>
                         </td>
                         <td className="p-4">
-                          <div className="flex items-center justify-between pr-10">
+                          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:pr-10">
                             <Button
                               variant="none"
                               size="sm"
-                              className="text-primary border border-primary bg-secondary rounded-sm p-5"
+                              className="text-primary border border-primary bg-secondary rounded-sm p-4 h-10 w-full sm:w-auto"
                               onClick={() =>
                                 router.push(
                                   `/client/dashboard/applicants/${applicant.id}`
@@ -502,7 +502,7 @@ export function ApplicantManagement({ activeTab }: ApplicantManagementProps) {
               </div>
 
               {/* Pagination */}
-              <div className="flex items-center justify-between p-4">
+              <div className="flex flex-col md:flex-row items-center justify-between p-4 gap-4">
                 <div className="flex items-center gap-2">
                   <span className="text-light">View</span>
                   <Select
@@ -518,7 +518,7 @@ export function ApplicantManagement({ activeTab }: ApplicantManagementProps) {
                       <SelectItem value="50">50</SelectItem>
                     </SelectContent>
                   </Select>
-                  <span className="text-light">Applicants per page</span>
+                  <span className="text-light text-sm">Applicants per page</span>
                 </div>
 
                 <div className="flex items-center gap-2">

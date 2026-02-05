@@ -74,7 +74,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        <nav className="hidden lg:flex items-center gap-6 lg:gap-8">
           {user && (
             <Link
               href={
